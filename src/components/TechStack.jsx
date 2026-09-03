@@ -23,7 +23,7 @@ export default function TechStack() {
             <motion.div key={c.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.08 }}
               className='bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] rounded-2xl p-6 hover:bg-white/[0.06] transition-all hover:-translate-y-1'>
               <div className='flex items-center gap-3 mb-4'>
-                <div className={w-2 h-8 rounded-full bg-gradient-to-b } />
+                <div className='w-2 h-8 rounded-full bg-gradient-to-b from-indigo-400 to-purple-500' />
                 <h3 className='text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-400'>{c.name}</h3>
               </div>
               <div className='flex flex-wrap gap-2'>
