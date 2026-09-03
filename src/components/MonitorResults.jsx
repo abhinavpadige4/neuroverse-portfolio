@@ -18,7 +18,7 @@ function ScoreBar({ label, value, max = 10 }) {
     <div className='flex items-center gap-3'>
       <span className='text-xs text-gray-500 w-20'>{label}</span>
       <div className='flex-1 h-1.5 bg-white/5 rounded-full overflow-hidden'>
-        <motion.div initial={{ width: 0 }} whileInView={{ width: pct + '%' }} viewport={{ once: true }} transition={{ duration: 0.8, ease: 'easeOut' }} className={h-full rounded-full } />
+        <motion.div initial={{ width: 0 }} whileInView={{ width: `${pct}%` }} viewport={{ once: true }} transition={{ duration: 0.8, ease: 'easeOut' }} className={`h-full rounded-full ${color}`} />
       </div>
       <span className='text-xs font-mono text-white w-8 text-right'>{value}</span>
     </div>
@@ -37,7 +37,6 @@ export default function MonitorResults() {
           <p className='text-lg text-gray-400 text-center max-w-2xl mx-auto mb-12'>Real-time quality scoring across factuality, coherence, safety, and efficiency</p>
         </motion.div>
 
-        {/* Summary cards */}
         <div className='grid grid-cols-2 md:grid-cols-4 gap-4 mb-10'>
           {[
             { label: 'Tasks Scored', value: '24', trend: '+6 today' },
@@ -54,7 +53,6 @@ export default function MonitorResults() {
           ))}
         </div>
 
-        {/* Individual results */}
         <div className='space-y-4'>
           {mockResults.map((r, i) => {
             const Icon = verdictIcons[r.verdict]
@@ -69,7 +67,7 @@ export default function MonitorResults() {
                   </div>
                   <div className='flex items-center gap-3'>
                     <span className='text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-400'>{r.score}</span>
-                    <span className={px-2 py-0.5 rounded-full text-[10px] font-bold }>{r.verdict}</span>
+                    <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${verdictColors[r.verdict]}`}>{r.verdict}</span>
                   </div>
                 </div>
                 <div className='grid grid-cols-1 md:grid-cols-4 gap-3'>
