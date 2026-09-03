@@ -15,23 +15,20 @@ const icons = [
 export default function Hero() {
   return (
     <section className='relative min-h-screen flex items-center justify-center overflow-hidden'>
-      {/* Animated gradient orbs */}
       <div className='absolute inset-0 overflow-hidden'>
         <motion.div className='absolute w-[600px] h-[600px] rounded-full bg-indigo-500/10 blur-[120px]' animate={{ x: [0,100,0], y: [0,-50,0] }} transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut' }} style={{ top: '10%', left: '10%' }} />
         <motion.div className='absolute w-[500px] h-[500px] rounded-full bg-purple-500/10 blur-[120px]' animate={{ x: [0,-80,0], y: [0,60,0] }} transition={{ duration: 25, repeat: Infinity, ease: 'easeInOut' }} style={{ bottom: '10%', right: '10%' }} />
         <motion.div className='absolute w-[400px] h-[400px] rounded-full bg-blue-500/8 blur-[100px]' animate={{ x: [0,60,0], y: [0,-80,0] }} transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }} style={{ top: '50%', left: '50%', transform: 'translate(-50%,-50%)' }} />
       </div>
 
-      {/* Floating icons */}
       {icons.map((item, i) => (
-        <motion.div key={i} className={bsolute  opacity-20} style={{ left: item.x, top: item.y }}
+        <motion.div key={i} className={`absolute opacity-20`} style={{ left: item.x, top: item.y }}
           animate={{ y: [0,-15,0], rotate: [0,10,0] }}
           transition={{ duration: 4 + item.delay, repeat: Infinity, ease: 'easeInOut', delay: item.delay }}>
-          <item.Icon size={40} />
+          <item.Icon size={40} className={item.color} />
         </motion.div>
       ))}
 
-      {/* Grid overlay */}
       <div className='absolute inset-0 opacity-[0.03]' style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
 
       <div className='relative z-10 max-w-6xl mx-auto px-6 text-center'>
