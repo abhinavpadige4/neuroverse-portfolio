@@ -24,7 +24,7 @@ export default function Features() {
             <motion.div key={a.name} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
               className='group relative bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] rounded-2xl p-6 hover:bg-white/[0.06] hover:border-white/[0.15] transition-all duration-300 hover:-translate-y-1'>
               <div className='flex items-center gap-3 mb-4'>
-                <div className={w-11 h-11 flex items-center justify-center rounded-xl bg-gradient-to-br  bg-opacity-20}>
+                <div className='w-11 h-11 flex items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500/20 to-purple-500/20 border border-white/10'>
                   <a.icon size={22} className='text-white' />
                 </div>
                 <h3 className='text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-400'>{a.name}</h3>
