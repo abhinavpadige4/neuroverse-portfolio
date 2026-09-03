@@ -1,130 +1,33 @@
 import { motion } from 'framer-motion'
 
-const sectionVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: 'easeOut' }
-  }
-}
-
 const categories = [
-  {
-    name: 'AI & ML',
-    color: 'from-indigo-400 to-purple-500',
-    techs: [
-      { name: 'LangGraph', desc: 'Agent orchestration' },
-      { name: 'LangChain', desc: 'LLM framework' },
-      { name: 'Pinecone', desc: 'Vector database' },
-      { name: 'OpenAI', desc: 'GPT-4o' },
-      { name: 'NVIDIA NIM', desc: 'Nemotron models' },
-      { name: 'Cohere', desc: 'Reranking' },
-    ]
-  },
-  {
-    name: 'Backend',
-    color: 'from-blue-400 to-cyan-500',
-    techs: [
-      { name: 'Spring Boot', desc: 'API Gateway' },
-      { name: 'FastAPI', desc: 'Agent services' },
-      { name: 'Python', desc: 'Core language' },
-      { name: 'Java', desc: 'Gateway' },
-      { name: 'Kafka', desc: 'Event streaming' },
-      { name: 'GraphQL', desc: 'API layer' },
-    ]
-  },
-  {
-    name: 'Frontend',
-    color: 'from-purple-400 to-pink-500',
-    techs: [
-      { name: 'React', desc: 'UI library' },
-      { name: 'TanStack', desc: 'Router + Query' },
-      { name: 'Vite', desc: 'Build tool' },
-      { name: 'Tailwind', desc: 'Styling' },
-      { name: 'Framer Motion', desc: 'Animations' },
-      { name: 'TypeScript', desc: 'Type safety' },
-    ]
-  },
-  {
-    name: 'Data & Storage',
-    color: 'from-emerald-400 to-teal-500',
-    techs: [
-      { name: 'PostgreSQL', desc: 'Primary DB' },
-      { name: 'MongoDB', desc: 'Document store' },
-      { name: 'Redis', desc: 'Cache + state' },
-      { name: 'Pinecone', desc: 'Vector search' },
-      { name: 'Neon', desc: 'Serverless PG' },
-    ]
-  },
-  {
-    name: 'DevOps & Observability',
-    color: 'from-amber-400 to-orange-500',
-    techs: [
-      { name: 'Docker', desc: 'Containers' },
-      { name: 'Prometheus', desc: 'Metrics' },
-      { name: 'Grafana', desc: 'Dashboards' },
-      { name: 'Jaeger', desc: 'Tracing' },
-      { name: 'GitHub Actions', desc: 'CI/CD' },
-    ]
-  },
-  {
-    name: 'MCP Integrations',
-    color: 'from-rose-400 to-red-500',
-    techs: [
-      { name: 'GitHub', desc: 'Code push' },
-      { name: 'Vercel', desc: 'Deploy' },
-      { name: 'Notion', desc: 'Planning' },
-      { name: 'Tavily', desc: 'Web search' },
-      { name: 'E2B', desc: 'Code sandbox' },
-      { name: 'Playwright', desc: 'Browser' },
-    ]
-  }
+  { name: 'AI & ML', color: 'from-indigo-400 to-purple-500', techs: ['LangGraph', 'LangChain', 'Pinecone', 'OpenAI', 'NVIDIA NIM', 'Cohere'] },
+  { name: 'Backend', color: 'from-blue-400 to-cyan-500', techs: ['Spring Boot', 'FastAPI', 'Python', 'Java', 'Kafka', 'GraphQL'] },
+  { name: 'Frontend', color: 'from-purple-400 to-pink-500', techs: ['React', 'TanStack', 'Vite', 'Tailwind', 'Framer Motion', 'TypeScript'] },
+  { name: 'Data & Storage', color: 'from-emerald-400 to-teal-500', techs: ['PostgreSQL', 'MongoDB', 'Redis', 'Pinecone', 'Neon'] },
+  { name: 'DevOps', color: 'from-amber-400 to-orange-500', techs: ['Docker', 'Prometheus', 'Grafana', 'Jaeger', 'GitHub Actions'] },
+  { name: 'MCP Tools', color: 'from-rose-400 to-red-500', techs: ['GitHub', 'Vercel', 'Notion', 'Tavily', 'E2B', 'Playwright'] },
 ]
 
 export default function TechStack() {
   return (
-    <section className="relative py-20">
-      <div className="absolute inset-0 opacity-[0.02]"
-        style={{
-          backgroundImage: 'radial-gradient(circle at 70% 30%, rgba(59, 130, 246, 0.05) 0%, transparent 50%)'
-        }}
-      />
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
-        <motion.div variants={sectionVariants} initial="hidden" animate="visible">
-          <h2 className="section-title text-center text-gradient">
-            Technology Stack
-          </h2>
-          <p className="section-subtitle">
-            Battle-tested technologies powering every layer of the platform
-          </p>
+    <section className='relative py-24'>
+      <div className='relative z-10 max-w-7xl mx-auto px-6'>
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+          <h2 className='text-4xl md:text-5xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-400 to-blue-400 mb-4'>Technology Stack</h2>
+          <p className='text-lg text-gray-400 text-center max-w-2xl mx-auto mb-12'>Battle-tested technologies powering every layer</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-          {categories.map((cat, ci) => (
-            <motion.div
-              key={cat.name}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: ci * 0.1 }}
-              className="glass-strong card-hover p-6"
-            >
-              <div className="flex items-center gap-3 mb-5">
-                <div className={`w-2 h-8 rounded-full bg-gradient-to-b ${cat.color}`} />
-                <h3 className="text-lg font-semibold text-gradient">{cat.name}</h3>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+          {categories.map((c, i) => (
+            <motion.div key={c.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.08 }}
+              className='bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] rounded-2xl p-6 hover:bg-white/[0.06] transition-all hover:-translate-y-1'>
+              <div className='flex items-center gap-3 mb-4'>
+                <div className={w-2 h-8 rounded-full bg-gradient-to-b } />
+                <h3 className='text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-400'>{c.name}</h3>
               </div>
-
-              <div className="space-y-3">
-                {cat.techs.map((tech) => (
-                  <div key={tech.name} className="flex items-center justify-between group">
-                    <div className="flex items-center gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-white/20 group-hover:bg-white/50 transition-colors" />
-                      <span className="text-sm text-gray-300 font-medium">{tech.name}</span>
-                    </div>
-                    <span className="text-xs text-gray-500 font-mono">{tech.desc}</span>
-                  </div>
-                ))}
+              <div className='flex flex-wrap gap-2'>
+                {c.techs.map((t) => <span key={t} className='px-3 py-1.5 rounded-lg text-xs font-mono bg-white/5 border border-white/10 text-gray-300 hover:bg-white/10 transition-colors cursor-default'>{t}</span>)}
               </div>
             </motion.div>
           ))}
