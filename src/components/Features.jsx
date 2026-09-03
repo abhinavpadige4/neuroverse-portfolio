@@ -1,180 +1,46 @@
 import { motion } from 'framer-motion'
 import { Brain, Shield, Globe, Zap, Settings, Code } from 'lucide-react'
 
-const sectionVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: 'easeOut' }
-  }
-}
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 30, scale: 0.95 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.6, ease: 'easeOut' }
-  }
-}
-
 const agents = [
-  {
-    id: 1,
-    name: 'Cognitive Core',
-    description: 'The central reasoning engine that processes complex queries, performs logical deductions, and maintains contextual awareness across multi-turn conversations.',
-    icon: Brain,
-    color: 'from-indigo-400 to-purple-500',
-    glow: 'glow-indigo',
-    stats: [
-      { label: 'IQ', value: '185+' },
-      { label: 'Context', value: '1M tokens' },
-      { label: 'Speed', value: 'Sub-ms' }
-    ]
-  },
-  {
-    id: 2,
-    name: 'Security Sentinel',
-    description: 'Advanced threat detection and response system that continuously monitors for vulnerabilities, implements zero-trust policies, and ensures compliance.',
-    icon: Shield,
-    color: 'from-emerald-400 to-teal-500',
-    glow: 'glow-emerald',
-    stats: [
-      { label: 'Threats', value: 'Blocked/Day' },
-      { label: 'Scan Rate', value: 'Real-time' },
-      { label: 'Compliance', value: 'SOC2/HIPAA' }
-    ]
-  },
-  {
-    id: 3,
-    name: 'Network Navigator',
-    description: 'Intelligent routing and load balancing system that optimizes data flow, reduces latency, and ensures high availability across distributed systems.',
-    icon: Globe,
-    color: 'from-blue-400 to-cyan-500',
-    glow: 'glow-blue',
-    stats: [
-      { label: 'Nodes', value: '10,000+' },
-      { label: 'Latency', value: '<5ms' },
-      { label: 'Uptime', value: '99.99%' }
-    ]
-  },
-  {
-    id: 4,
-    name: 'Process Orchestrator',
-    description: 'Workflow automation agent that coordinates complex multi-step processes, manages dependencies, and adapts to changing conditions in real-time.',
-    icon: Settings,
-    color: 'from-amber-400 to-orange-500',
-    glow: 'glow-amber',
-    stats: [
-      { label: 'Workflows', value: 'Active' },
-      { label: 'Success Rate', value: '99.8%' },
-      { label: 'Adaptation', value: 'Real-time' }
-    ]
-  },
-  {
-    id: 5,
-    name: 'Code Artisan',
-    description: 'Specialized development agent that writes, reviews, and optimizes code across multiple languages, ensuring best practices and performance.',
-    icon: Code,
-    color: 'from-purple-400 to-pink-500',
-    glow: 'glow-purple',
-    stats: [
-      { label: 'Languages', value: '25+' },
-      { label: 'Accuracy', value: '98.5%' },
-      { label: 'Review Speed', value: '10x faster' }
-    ]
-  },
-  {
-    id: 6,
-    name: 'Data Alchemist',
-    description: 'Advanced analytics and pattern recognition agent that transforms raw data into actionable insights through machine learning and statistical modeling.',
-    icon: Zap,
-    color: 'from-yellow-400 to-red-500',
-    glow: 'glow-yellow',
-    stats: [
-      { label: 'Datasets', value: 'PB Scale' },
-      { label: 'Accuracy', value: '99.2%' },
-      { label: 'Insights', value: 'Real-time' }
-    ]
-  }
+  { name: 'Cognitive Core', desc: 'Central reasoning engine processing complex queries with contextual awareness across multi-turn conversations.', icon: Brain, gradient: 'from-indigo-400 to-purple-500', stats: [{ l: 'IQ', v: '185+' }, { l: 'Context', v: '1M tokens' }, { l: 'Speed', v: 'Sub-ms' }] },
+  { name: 'Security Sentinel', desc: 'Advanced threat detection with zero-trust policies, continuous monitoring, and SOC2/HIPAA compliance.', icon: Shield, gradient: 'from-emerald-400 to-teal-500', stats: [{ l: 'Threats', v: 'Blocked/Day' }, { l: 'Scan', v: 'Real-time' }, { l: 'Compliance', v: 'SOC2' }] },
+  { name: 'Network Navigator', desc: 'Intelligent routing and load balancing optimizing data flow across distributed systems.', icon: Globe, gradient: 'from-blue-400 to-cyan-500', stats: [{ l: 'Nodes', v: '10K+' }, { l: 'Latency', v: '<5ms' }, { l: 'Uptime', v: '99.99%' }] },
+  { name: 'Process Orchestrator', desc: 'Workflow automation coordinating multi-step processes with real-time adaptation.', icon: Settings, gradient: 'from-amber-400 to-orange-500', stats: [{ l: 'Workflows', v: 'Active' }, { l: 'Success', v: '99.8%' }, { l: 'Adapt', v: 'Real-time' }] },
+  { name: 'Code Artisan', desc: 'Writes, reviews, and optimizes code across 25+ languages with 10x faster review speed.', icon: Code, gradient: 'from-purple-400 to-pink-500', stats: [{ l: 'Languages', v: '25+' }, { l: 'Accuracy', v: '98.5%' }, { l: 'Review', v: '10x faster' }] },
+  { name: 'Data Alchemist', desc: 'Transforms raw data into actionable insights through ML and statistical modeling at PB scale.', icon: Zap, gradient: 'from-yellow-400 to-red-500', stats: [{ l: 'Datasets', v: 'PB Scale' }, { l: 'Accuracy', v: '99.2%' }, { l: 'Insights', v: 'Real-time' }] },
 ]
 
 export default function Features() {
   return (
-    <section className="relative py-20">
-      <div className="absolute inset-0 opacity-[0.02]"
-        style={{
-          backgroundImage: 'radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.03) 0%, transparent 50%)'
-        }}
-      />
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
-        <motion.div variants={sectionVariants} initial="hidden" animate="visible">
-          <h2 className="section-title text-center text-gradient">
-            Intelligent Agent Ecosystem
-          </h2>
-          <p className="section-subtitle">
-            Six specialized AI agents working in concert to deliver unprecedented capabilities
-          </p>
+    <section id='features' className='relative py-24'>
+      <div className='relative z-10 max-w-7xl mx-auto px-6'>
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+          <h2 className='text-4xl md:text-5xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-400 to-blue-400 mb-4'>Intelligent Agent Ecosystem</h2>
+          <p className='text-lg text-gray-400 text-center max-w-2xl mx-auto mb-12'>Six specialized AI agents working in concert</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-          {agents.map((agent) => (
-            <motion.div
-              key={agent.id}
-              variants={cardVariants}
-              initial="hidden"
-              animate="visible"
-              className="glass-strong card-hover group relative overflow-hidden"
-              style={{
-                transitionDelay: `${agents.indexOf(agent) * 0.1}s`
-              }}
-            >
-              {/* Animated gradient border */}
-              <div className="absolute inset-0 -z-0 rounded-2xl bg-gradient-to-r"
-                style={{
-                  background: agent.color,
-                  opacity: 0.15,
-                  filter: 'blur(20px)',
-                  transform: 'translateZ(0)'
-                }}
-              />
-              
-              <div className="relative z-10 p-8">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className={`w-12 h-12 flex items-center justify-center rounded-xl ${agent.glow} ${agent.color}/20`}>
-                    <agent.icon size={24} className={`${agent.color}`} />
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8'>
+          {agents.map((a, i) => (
+            <motion.div key={a.name} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
+              className='group relative bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] rounded-2xl p-6 hover:bg-white/[0.06] hover:border-white/[0.15] transition-all duration-300 hover:-translate-y-1'>
+              <div className='flex items-center gap-3 mb-4'>
+                <div className={w-11 h-11 flex items-center justify-center rounded-xl bg-gradient-to-br  bg-opacity-20}>
+                  <a.icon size={22} className='text-white' />
+                </div>
+                <h3 className='text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-400'>{a.name}</h3>
+              </div>
+              <p className='text-gray-400 text-sm leading-relaxed mb-5'>{a.desc}</p>
+              <div className='space-y-2'>
+                {a.stats.map((s, j) => (
+                  <div key={j} className='flex justify-between text-xs text-gray-500'>
+                    <span>{s.l}</span>
+                    <span className='font-mono text-white'>{s.v}</span>
                   </div>
-                  <h3 className="text-xl font-semibold text-gradient">
-                    {agent.name}
-                  </h3>
-                </div>
-                
-                <p className="text-gray-400 mb-6 leading-relaxed">
-                  {agent.description}
-                </p>
-                
-                <div className="space-y-3">
-                  {agent.stats.map((stat, i) => (
-                    <div key={i} className="flex justify-between text-xs text-gray-500">
-                      <span>{stat.label}</span>
-                      <span className="font-mono text-white">{stat.value}</span>
-                    </div>
-                  ))}
-                </div>
-                
-                {/* Pulsing indicator */}
-                <div className="mt-6 flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full"
-                    style={{
-                      backgroundColor: agent.color.split(' ')[0].replace('from', 'bg'),
-                      animation: 'pulse 2s ease-in-out infinite'
-                    }}
-                  />
-                  <span className="text-xs text-gray-400">Operational</span>
-                </div>
+                ))}
+              </div>
+              <div className='mt-4 flex items-center gap-2'>
+                <div className='w-2 h-2 rounded-full bg-emerald-400 animate-pulse' />
+                <span className='text-xs text-gray-400'>Operational</span>
               </div>
             </motion.div>
           ))}
