@@ -22,18 +22,20 @@ export default function Architecture() {
           <div className='absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-indigo-500/50 via-purple-500/50 to-transparent -translate-x-1/2' />
           {layers.map((l, i) => (
             <motion.div key={l.name} initial={{ opacity: 0, x: i % 2 === 0 ? -40 : 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.12 }}
-              className={elative flex flex-col md:flex-row items-start gap-8 }>
+              className='relative flex flex-col md:flex-row items-start gap-8'>
               <div className='absolute left-6 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full border-2 border-dark-900 top-5'>
-                <div className={w-full h-full rounded-full bg-gradient-to-r } />
+                <div className='w-full h-full rounded-full bg-gradient-to-r from-indigo-400 to-purple-500' />
               </div>
-              <div className={ml-14 md:ml-0 md:w-[calc(50%-2rem)] }>
+              <div className='ml-14 md:ml-0 md:w-[calc(50%-2rem)]'>
                 <div className='bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] rounded-2xl p-6 hover:bg-white/[0.06] transition-all'>
                   <div className='flex items-center gap-3 mb-3'>
                     <l.icon size={20} className='text-indigo-400' />
                     <h3 className='text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-400'>{l.name}</h3>
                   </div>
                   <p className='text-gray-400 text-sm leading-relaxed mb-4'>{l.desc}</p>
-                  <div className='flex flex-wrap gap-2'>{l.items.map((t) => <span key={t} className='px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-gray-300'>{t}</span>)}</div>
+                  <div className='flex flex-wrap gap-2'>
+                    {l.items.map((t) => <span key={t} className='px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-gray-300'>{t}</span>)}
+                  </div>
                 </div>
               </div>
               <div className='hidden md:block md:w-[calc(50%-2rem)]' />
