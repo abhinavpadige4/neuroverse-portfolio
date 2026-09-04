@@ -1,9 +1,9 @@
 import Navbar from './components/Navbar.jsx'
 import Hero from './components/Hero.jsx'
-import About from './components/About.jsx'
-import Skills from './components/Skills.jsx'
-import Projects from './components/Projects.jsx'
-import Contact from './components/Contact.jsx'
+import Features from './components/Features.jsx'
+import Architecture from './components/Architecture.jsx'
+import TechStack from './components/TechStack.jsx'
+import MonitorResults from './components/MonitorResults.jsx'
 import Footer from './components/Footer.jsx'
 
 export default function App() {
@@ -12,10 +12,10 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Contact />
+        <Features />
+        <Architecture />
+        <TechStack />
+        <MonitorResults />
       </main>
       <Footer />
     </div>
