@@ -1,88 +1,84 @@
-import { useState, useEffect } from 'react'
-
-const links = [
-  { name: 'Home', href: '#home' },
-  { name: 'About', href: '#about' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Contact', href: '#contact' },
-]
+import { useState } from 'react'
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
-    window.addEventListener('scroll', onScroll)
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-dark-900/90 backdrop-blur-md border-b border-purple-500/20 py-3'
-          : 'bg-transparent py-5'
-      }`}
-    >
-      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
-        <a href="#home" className="flex items-center gap-2 group">
-          <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center font-bold text-white glow">
-            N
+    <nav className="bg-background/80 backdrop-blur-sm border-b border-border/50 sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex h-16 items-center justify-between">
+          <div className="flex-shrink-0">
+            <a href="#" className="text-xl font-bold text-gradient">
+              NeuroVerse
+            </a>
           </div>
-          <span className="text-xl font-bold tracking-tight">
-            Neuro<span className="gradient-text">Verse</span>
-          </span>
-        </a>
-
-        <div className="hidden md:flex items-center gap-8">
-          {links.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-sm text-gray-300 hover:text-purple-400 transition-colors"
+          <div className="hidden md:flex md:items-center md:space-x-8">
+            <a href="#hero" className="hover:text-primary/80 transition-colors">Home</a>
+            <a href="#about" className="hover:text-primary/80 transition-colors">About</a>
+            <a href="#skills" className="hover:text-primary/80 transition-colors">Skills</a>
+            <a href="#projects" className="hover:text-primary/80 transition-colors">Projects</a>
+            <a href="#contact" className="hover:text-primary/80 transition-colors">Contact</a>
+          </div>
+          <div className="md:hidden">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-foreground hover:text-primary/80"
+              aria-label="Toggle menu"
             >
-              {link.name}
-            </a>
-          ))}
-          <a
-            href="#contact"
-            className="px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-500 text-white text-sm font-medium transition-colors"
-          >
-            Hire Me
-          </a>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+                />
+              </svg>
+            </button>
+          </div>
         </div>
-
-        <button
-          className="md:hidden text-gray-300 focus:outline-none"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
-        >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            {menuOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
-        </button>
+        {isOpen && (
+          <div className="md:hidden mt-2">
+            <div className="px-2 pt-2 pb-3 space-y-1">
+              <a
+                href="#hero"
+                className="block px-3 py-2 rounded-md text-base font-medium hover:bg-primary/10 hover:text-primary"
+              >
+                Home
+              </a>
+              <a
+                href="#about"
+                className="block px-3 py-2 rounded-md text-base font-medium hover:bg-primary/10 hover:text-primary"
+              >
+                About
+              </a>
+              <a
+                href="#skills"
+                className="block px-3 py-2 rounded-md text-base font-medium hover:bg-primary/10 hover:text-primary"
+              >
+                Skills
+              </a>
+              <a
+                href="#projects"
+                className="block px-3 py-2 rounded-md text-base font-medium hover:bg-primary/10 hover:text-primary"
+              >
+                Projects
+              </a>
+              <a
+                href="#contact"
+                className="block px-3 py-2 rounded-md text-base font-medium hover:bg-primary/10 hover:text-primary"
+              >
+                Contact
+              </a>
+            </div>
+          </div>
+        )}
       </div>
-
-      {menuOpen && (
-        <div className="md:hidden bg-dark-800 border-t border-purple-500/20 px-6 py-4 flex flex-col gap-4">
-          {links.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={() => setMenuOpen(false)}
-              className="text-gray-300 hover:text-purple-400 transition-colors"
-            >
-              {link.name}
-            </a>
-          ))}
-        </div>
-      )}
     </nav>
   )
 }
