@@ -1,62 +1,35 @@
 export default function Hero() {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Background glow effects */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl animate-float" />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#0a0a0f_70%)]" />
-
-      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-300 text-sm mb-8">
-          <span className="w-2 h-2 rounded-full bg-purple-400 animate-pulse" />
-          Available for new opportunities
-        </div>
-
-        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight leading-tight mb-6">
-          Hi, I'm{' '}
-          <span className="gradient-text">NeuroVerse</span>
-        </h1>
-
-        <p className="text-xl md:text-2xl text-gray-300 mb-4 font-medium">
-          AI Engineer & Machine Learning Specialist
+    <section id="hero" className="relative overflow-hidden py-24 sm:py-32">
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-1/4 left-1/4 h-72 w-72 rounded-full bg-primary/20 blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 h-72 w-72 rounded-full bg-fuchsia-500/20 blur-3xl" />
+      </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p className="text-sm font-medium text-primary mb-4 tracking-widest uppercase">
+          AI Engineer
         </p>
-
-        <p className="text-gray-400 max-w-2xl mx-auto mb-10 text-lg leading-relaxed">
+        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight">
+          Hi, I'm <span className="text-gradient">NeuroVerse</span>
+        </h1>
+        <p className="mt-6 text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
           I build intelligent systems at the intersection of machine learning and
           software engineering — turning complex data into elegant, production-ready
-          AI solutions that solve real-world problems.
+          AI solutions.
         </p>
-
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="#projects"
-            className="px-8 py-3.5 rounded-lg bg-purple-600 hover:bg-purple-500 text-white font-semibold transition-all hover:scale-105 glow"
+            className="inline-flex items-center justify-center rounded-lg bg-primary px-8 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors glow"
           >
             View My Work
           </a>
           <a
             href="#contact"
-            className="px-8 py-3.5 rounded-lg border border-purple-500/40 text-purple-300 hover:bg-purple-500/10 font-semibold transition-all hover:scale-105"
+            className="inline-flex items-center justify-center rounded-lg border border-border px-8 py-3 text-sm font-semibold hover:bg-secondary transition-colors"
           >
             Get In Touch
           </a>
-        </div>
-
-        <div className="mt-16 flex items-center justify-center gap-8 text-gray-500 text-sm">
-          <div className="text-center">
-            <div className="text-2xl font-bold text-white">5+</div>
-            <div>Years Experience</div>
-          </div>
-          <div className="w-px h-10 bg-gray-700" />
-          <div className="text-center">
-            <div className="text-2xl font-bold text-white">30+</div>
-            <div>Projects Delivered</div>
-          </div>
-          <div className="w-px h-10 bg-gray-700" />
-          <div className="text-center">
-            <div className="text-2xl font-bold text-white">15+</div>
-            <div>Happy Clients</div>
-          </div>
         </div>
       </div>
     </section>
