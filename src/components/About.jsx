@@ -1,53 +1,44 @@
 export default function About() {
-  const highlights = [
-    { icon: '🧠', title: 'Deep Learning', desc: 'Neural networks, transformers, and LLMs' },
-    { icon: '📊', title: 'Data Science', desc: 'Analysis, visualization, and feature engineering' },
-    { icon: '⚙️', title: 'MLOps', desc: 'Deployment, monitoring, and CI/CD pipelines' },
-    { icon: '🚀', title: 'Product Mindset', desc: 'Shipping AI that delivers real value' },
-  ]
-
   return (
-    <section id="about" className="py-24 px-6">
-      <div className="max-w-6xl mx-auto">
+    <section id="about" className="py-24 sm:py-32">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            About <span className="gradient-text">Me</span>
-          </h2>
-          <div className="w-20 h-1 bg-purple-500 mx-auto rounded-full" />
+          <h2 className="text-3xl sm:text-4xl font-bold">About Me</h2>
+          <div className="mt-4 h-1 w-20 bg-primary mx-auto rounded-full" />
         </div>
-
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <p className="text-gray-300 text-lg leading-relaxed mb-6">
-              I'm an AI engineer passionate about building intelligent systems that
-              push the boundaries of what's possible. With a strong foundation in
-              computer science and a deep specialization in machine learning, I've
-              spent the last five years designing, training, and deploying models
-              that power everything from recommendation engines to conversational AI.
+          <div className="space-y-6 text-muted-foreground leading-relaxed">
+            <p>
+              I'm an AI engineer passionate about building systems that learn,
+              reason, and adapt. With a strong foundation in machine learning,
+              deep learning, and software engineering, I bridge the gap between
+              cutting-edge research and real-world applications.
             </p>
-            <p className="text-gray-400 text-lg leading-relaxed mb-6">
-              My approach combines rigorous engineering with creative problem-solving.
-              I believe the best AI solutions are not just technically sound, but
-              also intuitive, ethical, and accessible. Whether it's fine-tuning a
-              large language model or optimizing a computer vision pipeline, I focus
-              on delivering measurable impact.
+            <p>
+              My work spans natural language processing, computer vision, and
+              large language models — from training custom models to deploying
+              scalable inference pipelines. I care deeply about writing clean,
+              maintainable code and shipping products that deliver real value.
             </p>
-            <p className="text-gray-400 text-lg leading-relaxed">
-              When I'm not coding, you'll find me exploring the latest research
-              papers, contributing to open source, or mentoring aspiring engineers
-              in the AI community.
+            <p>
+              When I'm not building models, I'm exploring the latest in AI
+              research, contributing to open source, and mentoring aspiring
+              engineers.
             </p>
           </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {highlights.map((item) => (
+          <div className="grid grid-cols-2 gap-4">
+            {[
+              { value: '5+', label: 'Years Experience' },
+              { value: '30+', label: 'Projects Shipped' },
+              { value: '15+', label: 'Models Deployed' },
+              { value: '10+', label: 'Open Source Contributions' },
+            ].map((stat) => (
               <div
-                key={item.title}
-                className="p-6 rounded-xl bg-dark-800 border border-purple-500/20 hover:border-purple-500/50 transition-all hover:-translate-y-1"
+                key={stat.label}
+                className="rounded-lg border border-border bg-card p-6 text-center hover:border-primary/50 transition-colors"
               >
-                <div className="text-3xl mb-3">{item.icon}</div>
-                <h3 className="font-semibold text-white mb-2">{item.title}</h3>
-                <p className="text-gray-400 text-sm">{item.desc}</p>
+                <div className="text-3xl font-bold text-gradient">{stat.value}</div>
+                <div className="mt-2 text-sm text-muted-foreground">{stat.label}</div>
               </div>
             ))}
           </div>
