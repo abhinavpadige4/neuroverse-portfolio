@@ -1,17 +1,9 @@
 export default function Hero() {
   return (
-    <section className="py-20 text-center">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">
-          Abhinav
-        </h1>
-        <p className="text-lg md:text-xl mb-6">
-          AI Engineer • Machine Learning Specialist • Deep Learning Enthusiast
-        </p>
-        <a href="#features" className="bg-primary-500 hover:bg-primary-600 text-white font-medium py-2 px-4 rounded transition">
-          Learn More
-        </a>
-      </div>
+    <section className="py-20 text-center bg-gradient-to-b from-gray-900 to-gray-800">
+      <h1 className="text-4xl md:text-5xl font-bold mb-4">Abhinav Padige</h1>
+      <p className="text-xl text-gray-400 mb-8">AI Engineer</p>
+      <a href="#contact" className="inline-block px-6 py-3 bg-indigo-600 hover:bg-indigo-700 rounded-lg transition-colors font-medium">Contact Me</a>
     </section>
-  );
+  )
 }
