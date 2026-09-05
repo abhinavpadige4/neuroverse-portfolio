@@ -1,25 +1,25 @@
 export default function WorkExperience() {
   return (
-    <section className="py-16 px-6">
-      <h2 className="text-3xl font-bold mb-10 text-center">Work Experience</h2>
-      <div className="max-w-4xl mx-auto space-y-8">
-        <div className="bg-gray-800 p-6 rounded-lg border border-gray-700">
+    <section className="py-20">
+      <h2 className="text-3xl font-bold mb-12 text-center">Work Experience</h2>
+      <div className="max-w-4xl mx-auto px-6 space-y-8">
+        <div className="bg-gray-800 rounded-lg p-6 border-l-4 border-indigo-500">
           <h3 className="text-xl font-semibold mb-2">AI Engineer</h3>
-          <p className="text-gray-400 mb-2">Tech Innovations Inc. | Jan 2022 - Present</p>
+          <p className="text-gray-400 mb-2">TechCorp Inc. | Jan 2022 - Present</p>
           <ul className="list-disc list-inside text-gray-300 space-y-2">
-            <li>Developed and deployed 5+ production ML models serving 1M+ daily users</li>
-            <li>Improved model accuracy by 23% through feature engineering and ensemble techniques</li>
-            <li>Led migration of legacy ML pipelines to Kubernetes, reducing inference latency by 40%</li>
-            <li>Architected MLOps platform using MLflow and Docker, cutting deployment time from weeks to hours</li>
+            <li>Led development of NLP pipeline for customer sentiment analysis, improving accuracy by 35% using BERT-based models.</li>
+            <li>Designed and deployed scalable ML microservices on AWS SageMaker, reducing inference latency by 60%.</li>
+            <li>Automated model retraining workflows with MLflow, cutting deployment cycle from weeks to hours.</li>
+            <li>Mentored 5 junior engineers in ML best practices and code review standards.</li>
           </ul>
         </div>
-        <div className="bg-gray-800 p-6 rounded-lg border border-gray-700">
+        <div className="bg-gray-800 rounded-lg p-6 border-l-4 border-indigo-500">
           <h3 className="text-xl font-semibold mb-2">Machine Learning Intern</h3>
-          <p className="text-gray-400 mb-2">DataSolutions Corp. | Jun 2021 - Dec 2021</p>
+          <p className="text-gray-400 mb-2">DataSolutions Ltd. | Jun 2021 - Dec 2021</p>
           <ul className="list-disc list-inside text-gray-300 space-y-2">
-            <li>Built NLP pipeline for sentiment analysis achieving 91% F1-score on customer feedback</li>
-            <li>Automated data preprocessing workflows, saving 15+ hours/week in manual effort</li>
-            <li>Collaborated with cross-functional team to integrate ML features into core product</li>
+            <li>Built computer vision model for defect detection in manufacturing, achieving 92% precision.</li>
+            <li>Optimized data preprocessing pipelines using Pandas and Dask, reducing processing time by 40%.</li>
+            <li>Collaborated with software team to integrate ML models into production REST API.</li>
           </ul>
         </div>
       </div>
