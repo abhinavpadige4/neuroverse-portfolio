@@ -1,19 +1,23 @@
-import Hero from './components/Hero';
-import Features from './components/Features';
-import Architecture from './components/Architecture';
-import TechStack from './components/TechStack';
-import Footer from './components/Footer';
+import Hero from './components/Hero.jsx'
+import About from './components/About.jsx'
+import Skills from './components/Skills.jsx'
+import WorkExperience from './components/WorkExperience.jsx'
+import Projects from './components/Projects.jsx'
+import Education from './components/Education.jsx'
+import Contact from './components/Contact.jsx'
 
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-purple-900 via-purple-800 to-purple-900 text-white">
+    <div className="min-h-screen bg-gray-900 text-white font-sans">
       <Hero />
-      <Features />
-      <Architecture />
-      <TechStack />
-      <Footer />
+      <About />
+      <Skills />
+      <WorkExperience />
+      <Projects />
+      <Education />
+      <Contact />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
