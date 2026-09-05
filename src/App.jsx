@@ -1,5 +1,5 @@
 import Hero from './components/Hero.jsx'
-import About from './components/About.jsx'
+import AboutMe from './components/AboutMe.jsx'
 import Skills from './components/Skills.jsx'
 import WorkExperience from './components/WorkExperience.jsx'
 import Projects from './components/Projects.jsx'
@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-900 text-white font-sans">
       <Hero />
-      <About />
+      <AboutMe />
       <Skills />
       <WorkExperience />
       <Projects />
